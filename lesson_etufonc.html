@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> HOME   </title>
+<link rel="stylesheet" type="text/css" href="lesson-etufonc.css">
+
+</head>
+<body> 
+<script>
+window.onload=function(){let larg=screen.availWidth;
+let navi=document.querySelector("#nv1");
+let suj=document.querySelector("#chap");
+if(larg>=800){
+/*navi.style.left=""+Math.round((larg-800)/2)+"px";*/
+suj.style.left=""+Math.round((larg-800)/2)+"px";
+suj.style.right=""+Math.round((larg-800)/2)+"px";}
+
+if(larg<800){
+/*navi.style.left=""+30+"px";*/
+/*navi.style.right=""+30+"px";*/
+suj.style.left=""+30+"px";
+suj.style.right=""+30+"px";}
+
+
+function rotation(ang,x,y,xc,yc,ob){let xf;let yf;let cordx;let cordy;
+cordx=Math.round(x*Math.cos(ang)-y*Math.sin(ang)+xc-xc*Math.cos(ang)+yc*Math.sin(ang));
+cordy=Math.round(x*Math.sin(ang)+y*Math.cos(ang)-xc*Math.sin(ang)+yc-yc*Math.cos(ang));
+ob.setAttribute("cx",""+cordx);ob.setAttribute("cy",""+cordy);}
+function relie(xi,yi,xf,yf,ob){ob.setAttribute("x1",""+xi);ob.setAttribute("x2",""+xf);
+ob.setAttribute("y1",""+yi);ob.setAttribute("y2",""+yf);
+}
+
+function symetc(ob1,ob2,xc,yc){let xim=2*xc-ob1.getAttribute("cx");let yim=2*yc-ob1.getAttribute("cy");
+   ob2.setAttribute("cx",""+Math.round(xim));ob2.setAttribute("cy",""+Math.round(yim));}
+ let ns="http://www.w3.org/2000/svg";/*
+let slog=document.createElementNS(ns,"text");let slog1=document.createElementNS(ns,"text");
+slog.setAttribute("x","10");slog.setAttribute("y","250");
+slog.setAttribute("font-family","gabriola");slog.textContent="L'évolution de tout système obéi à des";
+slog1.setAttribute("x","10");slog1.setAttribute("y","286");
+slog1.setAttribute("font-family","gabriola");slog1.textContent="ordres mathématiques prédéfinis";
+
+slog.setAttribute("font-size","40px");slog.setAttribute("stroke","rgba(100%,0%,60%,0.5)");
+slog1.setAttribute("font-size","40px");slog1.setAttribute("stroke","rgba(100%,0%,60%,0,5)");
+let C1=document.createElementNS(ns,"circle"); let C2=document.createElementNS(ns,"circle");
+let c1=document.createElementNS(ns,"circle"); let c2=document.createElementNS(ns,"circle");
+let c3=document.createElementNS(ns,"circle"); let c4=document.createElementNS(ns,"circle");
+let c5=document.createElementNS(ns,"circle"); let c6=document.createElementNS(ns,"circle");
+let x1=100;let x2=50;let x3=180;let y1=Math.round(Math.sqrt(10000-Math.pow(x1-120,2))+120);
+y2=Math.round(Math.sqrt(10000-Math.pow(x2-120,2))+120);y3=Math.round(0-Math.sqrt(10000-Math.pow(x3-120,2))+120);
+C1.setAttribute("cx","120");C1.setAttribute("cy","120");C1.setAttribute("r","100");
+C2.setAttribute("cx","290");C2.setAttribute("cy","120");C2.setAttribute("r","100");
+let lgn1=document.createElementNS(ns,"line");let lgn2=document.createElementNS(ns,"line");
+let lgn3=document.createElementNS(ns,"line");let lgn4=document.createElementNS(ns,"line");
+let lgn5=document.createElementNS(ns,"line");let lgn6=document.createElementNS(ns,"line");
+let Lgn1=document.createElementNS(ns,"line");let Lgn2=document.createElementNS(ns,"line");
+let Lgn3=document.createElementNS(ns,"line");
+
+Lgn1.setAttribute("stroke","rgba(100%,0%,0%,0.5)");Lgn1.setAttribute("stroke-width","1px");Lgn1.setAttribute("fill","rgba(100%,0%,0%,0.5)");
+Lgn2.setAttribute("stroke","rgba(100%,0%,80%,0.5)");Lgn2.setAttribute("stroke-width","1px");Lgn2.setAttribute("fill","rgba(100%,0%,80%,0.5)");
+Lgn3.setAttribute("stroke","rgba(0%,50%,100%,0.5)");Lgn3.setAttribute("stroke-width","1px");Lgn3.setAttribute("fill","rgba(0%,50%,100%,0.5)");
+Lgn1.setAttribute("id","Lgn1");Lgn2.setAttribute("id","Lgn2");Lgn3.setAttribute("id","Lgn3");
+
+C1.setAttribute("stroke","red");C1.setAttribute("stroke-width","2px");C1.setAttribute("fill","rgba(0%,0%,0%,0)");
+C2.setAttribute("stroke","black");C2.setAttribute("stroke-width","2px");C2.setAttribute("fill","rgba(0%,0%,0%,0)");
+let x4=Math.round((120+290)-x1);let x5=Math.round((120+290)-x2);let x6=Math.round((120+290)-x3);
+let y6=Math.round((240)-y3);let y4=Math.round((240)-y1);let y5=Math.round((240)-y2);
+
+
+c1.setAttribute("cx",""+x1);c1.setAttribute("cy",""+y1);c1.setAttribute("r","5");
+c2.setAttribute("cx",""+x2);c2.setAttribute("cy",""+y2);c2.setAttribute("r","5");
+c3.setAttribute("cx",""+x3);c3.setAttribute("cy",""+y3);c3.setAttribute("r","5");
+
+c1.setAttribute("stroke","blue");c1.setAttribute("stroke-width","1px");c1.setAttribute("fill","blue");
+c2.setAttribute("stroke","blue");c2.setAttribute("stroke-width","1px");c2.setAttribute("fill","blue");
+c3.setAttribute("stroke","blue");c3.setAttribute("stroke-width","1px");c3.setAttribute("fill","blue");
+
+c4.setAttribute("cx",""+x4);c4.setAttribute("cy",""+y4);c4.setAttribute("r","5");
+c5.setAttribute("cx",""+x5);c5.setAttribute("cy",""+y5);c5.setAttribute("r","5");
+c6.setAttribute("cx",""+x6);c6.setAttribute("cy",""+y6);c6.setAttribute("r","5");
+
+c4.setAttribute("stroke","green");c4.setAttribute("stroke-width","1px");c4.setAttribute("fill","green");
+c5.setAttribute("stroke","green");c5.setAttribute("stroke-width","1px");c5.setAttribute("fill","green");
+c6.setAttribute("stroke","green");c6.setAttribute("stroke-width","1px");c6.setAttribute("fill","green");
+
+relie(x1,y1,x2,y2,lgn1); relie(x1,y1,x3,y3,lgn2);relie(x3,y3,x2,y2,lgn3);
+relie(x4,y4,x5,y5,lgn4);relie(x4,y4,x6,y6,lgn5);relie(x6,y6,x5,y5,lgn6);
+relie(x1,y1,x4,y4,Lgn1); relie(x2,y2,x5,y5,Lgn2);relie(x3,y3,x6,y6,Lgn3);
+
+
+lgn4.setAttribute("stroke","green");lgn4.setAttribute("stroke-width","1px");lgn4.setAttribute("fill","green");
+lgn5.setAttribute("stroke","green");lgn5.setAttribute("stroke-width","1px");lgn5.setAttribute("fill","green");
+lgn6.setAttribute("stroke","green");lgn6.setAttribute("stroke-width","1px");lgn6.setAttribute("fill","green");
+
+lgn1.setAttribute("stroke","blue");lgn1.setAttribute("stroke-width","1px");lgn1.setAttribute("fill","blue");
+lgn2.setAttribute("stroke","blue");lgn2.setAttribute("stroke-width","1px");lgn2.setAttribute("fill","blue");
+lgn3.setAttribute("stroke","blue");lgn3.setAttribute("stroke-width","1px");lgn3.setAttribute("fill","blue");
+
+
+c1.setAttribute("id","c1");c2.setAttribute("id","c2");c3.setAttribute("id","c3");c4.setAttribute("id","c4");
+c5.setAttribute("id","c5");c6.setAttribute("id","c6");
+
+lgn1.setAttribute("id","lgn1");lgn2.setAttribute("id","lgn2");lgn3.setAttribute("id","lgn3");lgn4.setAttribute("id","lgn4");
+lgn5.setAttribute("id","lgn5");lgn6.setAttribute("id","lgn6");
+
+let vg=document.querySelector("#sv");
+vg.append(slog);vg.append(slog1);
+vg.append(C1);vg.append(C2);vg.append(c1);vg.append(c2);vg.append(c3);vg.append(c4);vg.append(c5);vg.append(c6);
+
+vg.append(lgn1);vg.append(lgn2);vg.append(lgn3);vg.append(lgn4);vg.append(lgn5);vg.append(lgn6);
+vg.append(Lgn1);vg.append(Lgn2);vg.append(Lgn3);
+
+c1=document.querySelector("#c1");c2=document.querySelector("#c2");c3=document.querySelector("#c3");
+c4=document.querySelector("#c4");c5=document.querySelector("#c5");c6=document.querySelector("#c6");
+
+ let l1=document.querySelector("#lgn1");let l2=document.querySelector("#lgn2");let l3=document.querySelector("#lgn3");
+ let l4=document.querySelector("#lgn4");let l5=document.querySelector("#lgn5");let l6=document.querySelector("#lgn6");
+let L1=document.querySelector("#Lgn1");let L2=document.querySelector("#Lgn2");let L3=document.querySelector("#Lgn3");
+
+let rot;let sign=0;
+rot=setInterval(()=>{rotation(Math.PI/50,c1.getAttribute("cx"),c1.getAttribute("cy"),120,120,c1);
+rotation(Math.PI/50,c2.getAttribute("cx"),c2.getAttribute("cy"),120,120,c2);
+rotation(Math.PI/50,c3.getAttribute("cx"),c3.getAttribute("cy"),120,120,c3);
+relie(c1.getAttribute("cx"),c1.getAttribute("cy"),c2.getAttribute("cx"),c2.getAttribute("cy"),l1);
+relie(c1.getAttribute("cx"),c1.getAttribute("cy"),c3.getAttribute("cx"),c3.getAttribute("cy"),l2);
+relie(c3.getAttribute("cx"),c3.getAttribute("cy"),c2.getAttribute("cx"),c2.getAttribute("cy"),l3);
+symetc(c1,c4,(120+290)/2,120);
+symetc(c2,c5,(120+290)/2,120);
+symetc(c3,c6,(120+290)/2,120);
+
+relie(c4.getAttribute("cx"),c4.getAttribute("cy"),c5.getAttribute("cx"),c5.getAttribute("cy"),l4);
+relie(c4.getAttribute("cx"),c4.getAttribute("cy"),c6.getAttribute("cx"),c6.getAttribute("cy"),l5);
+relie(c6.getAttribute("cx"),c6.getAttribute("cy"),c5.getAttribute("cx"),c5.getAttribute("cy"),l6);
+
+
+relie(c1.getAttribute("cx"),c1.getAttribute("cy"),c4.getAttribute("cx"),c4.getAttribute("cy"),L1);
+relie(c2.getAttribute("cx"),c2.getAttribute("cy"),c5.getAttribute("cx"),c5.getAttribute("cy"),L2);
+relie(c3.getAttribute("cx"),c3.getAttribute("cy"),c6.getAttribute("cx"),c6.getAttribute("cy"),L3);
+},100);*/
+
+ };
+
+
+ 
+
+</script>
+
+<div id="chap">
+<div id="subject"><p id="subj"> SUJETS D'ENSEIGNEMENT</p></div>
+
+<div id="sj1"><a href="etufc/ensdef/teach.html"><p id="sbj13" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">	Ensemble de définition d'une fonction</p></a></div>
+
+<div id="sj2"><a href="etufc/limites/rubrique_limite.html"><p id="sbj1" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'" > limites de fonctions </p></a></div>
+
+<div id="sj3"><a href="etufc/continuite/rubrique_continuite.html"><p id="sbj2" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'"> continuité </p></a></div>
+
+<div id="sj4"><a href="etufc/derivabilite/rubrique_derivabilite.html"><p id="sbj3" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'"> dérivabilité </p></a></div>
+
+<div id="sj5"><a href="etufc/courbe/rubrique_courbe.html"><p id="sbj4" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'"> courbes  </p></a></div>
+
+<div id="sj6"><a href="etufc/bijection/rubrique-bijection.html"><p id="sbj5" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">Bijections </p></a></div>
+
+<div id="sj7"><a><p id="sbj6" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">Etude du signe de fonctions</p><a/></div>
+
+<div id="sj8"><a href="etufc/fonclog/rubrique_log.html"><p id="sbj7" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">Fonction logarithme</p></a></div>
+
+<div id="sj9"><a href="etufc/foncexp/rubrique_expo.html"><p id="sbj8" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">Fonction exponentielle</p></a></div>
+
+<div id="sj10"><a href="etufc/restriction/rubrique-restriction.html"><p id="sbj9" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">Restriction d'une fonction</p></a></div>
+
+<div id="sj11"><a href="etufc/TP/tp.html"><p id="sbj10" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">TRAVAUX PRATIQUES  </p></a></div>
+
+
+<div id="sj12"><a><p id="sbj11" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">*************** </p></a></div>
+
+
+<div id="sj13"><a><p id="sbj12" onmouseover="event.currentTarget.style.color='rgba(100%,0%,50%,1)'"
+ onmouseout="event.currentTarget.style.color='rgba(100%,100%,100%,1)'">**************** </p></a></div>
+
+
+
+
+</div>
+
+ 
+</body>
+</html> 
